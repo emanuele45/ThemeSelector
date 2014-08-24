@@ -20,18 +20,15 @@
 	<install for="1.0 RC3 - 1.0.99">
 		<require-file name="ThemeSelector.integrate.php" destination="SOURCEDIR" />
 		<require-file name="ThemeSelector.js" destination="THEMEDIR/scripts" />
+		<require-file name="ThemeSelector.template.js" destination="THEMEDIR" />
 		<require-file name="ThemeSelector.css" destination="THEMEDIR/css" />
-		<hook hook="integrate_load_theme"
-		      file="SOURCEDIR/ThemeSelector.integrate.php"
-		      function="ThemeSelector::load_theme" />
+		<hook hook="integrate_load_theme" file="SOURCEDIR/ThemeSelector.integrate.php" function="ThemeSelector::load_theme" />
 	</install>
 	<uninstall for="1.0 RC3 - 1.0.99">
 		<remove-file name="SOURCEDIR/ThemeSelector.integrate.php" />
 		<remove-file name="THEMEDIR/scripts/ThemeSelector.js" />
+		<remove-file name="THEMEDIR/ThemeSelector.template.php" />
 		<remove-file name="THEMEDIR/css/ThemeSelector.css" />
-		<hook reverse="true"
-		      hook="integrate_load_theme"
-		      file="SOURCEDIR/ThemeSelector.integrate.php"
-		      function="ThemeSelector::load_theme" />
+		<hook reverse="true" hook="integrate_load_theme" file="SOURCEDIR/ThemeSelector.integrate.php" function="ThemeSelector::load_theme" />
 	</uninstall>
 </package-info>
