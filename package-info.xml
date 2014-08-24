@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.elkarte.net/site/package-info">
+<package-info xmlns="http://www.elkarte.net/site/package-info" xmlns:elk="http://www.elkarte.net/">
+	<license><![CDATA[
+/**
+ * Theme Selector
+ *
+ * @name      Theme Selector
+ * @copyright Theme Selector contributors
+ * @license   BSD http://opensource.org/licenses/BSD-3-Clause
+ *
+ * @version 0.1.0
+ *
+ */
+	]]></license>
+	<id>emanuele:ThemeSelector</id>
+	<name>Theme Selector</name>
+	<version>0.1.0</version>
+	<type>modification</type>
+	<install for="1.0 RC3 - 1.0.99">
+		<require-file name="ThemeSelector.integrate.php" destination="SOURCEDIR" />
+		<require-file name="ThemeSelector.js" destination="THEMEDIR/scripts" />
+		<require-file name="ThemeSelector.css" destination="THEMEDIR/css" />
+		<hook hook="integrate_load_theme"
+		      file="SOURCEDIR/ThemeSelector.integrate.php"
+		      function="ThemeSelector::load_theme" />
+	</install>
+	<uninstall for="1.0 RC3 - 1.0.99">
+		<remove-file name="SOURCEDIR/ThemeSelector.integrate.php" />
+		<remove-file name="THEMEDIR/scripts/ThemeSelector.js" />
+		<remove-file name="THEMEDIR/css/ThemeSelector.css" />
+		<hook reverse="true"
+		      hook="integrate_load_theme"
+		      file="SOURCEDIR/ThemeSelector.integrate.php"
+		      function="ThemeSelector::load_theme" />
+	</uninstall>
+</package-info>
