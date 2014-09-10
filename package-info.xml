@@ -20,7 +20,7 @@
 	<install for="1.0 RC3 - 1.0.99">
 		<require-file name="ThemeSelector.integrate.php" destination="SOURCEDIR" />
 		<require-file name="ThemeSelector.js" destination="THEMEDIR/scripts" />
-		<require-file name="ThemeSelector.template.js" destination="THEMEDIR" />
+		<require-file name="ThemeSelector.template.php" destination="THEMEDIR" />
 		<require-file name="ThemeSelector.css" destination="THEMEDIR/css" />
 		<hook hook="integrate_load_theme" file="SOURCEDIR/ThemeSelector.integrate.php" function="ThemeSelector::load_theme" />
 	</install>
