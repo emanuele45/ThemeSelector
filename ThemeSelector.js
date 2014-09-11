@@ -5,7 +5,7 @@
  * @copyright Theme Selector contributors
  * @license   BSD http://opensource.org/licenses/BSD-3-Clause
  *
- * @version 0.1.1
+ * @version 0.1.2
  *
  */
 

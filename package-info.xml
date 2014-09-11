@@ -9,13 +9,13 @@
  * @copyright Theme Selector contributors
  * @license   BSD http://opensource.org/licenses/BSD-3-Clause
  *
- * @version 0.1.1
+ * @version 0.1.2
  *
  */
 	]]></license>
 	<id>emanuele:ThemeSelector</id>
 	<name>Theme Selector</name>
-	<version>0.1.1</version>
+	<version>0.1.2</version>
 	<type>modification</type>
 	<install for="1.0 RC3 - 1.0.99">
 		<require-file name="ThemeSelector.integrate.php" destination="SOURCEDIR" />

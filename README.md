@@ -7,6 +7,8 @@ Adds a selector that allows users to pick a different theme/variant for the foru
 This Modifications Source Code is subject to the terms of [The BSD License](http://opensource.org/licenses/BSD-3-Clause)
 
 ###Changelog
+  * 0.1.2 - Fixes:
+    * Avoid conflict between themes with the same variants
   * 0.1.1 - Fixes:
     * Wrong file included at install time
     * Broken reload URL
