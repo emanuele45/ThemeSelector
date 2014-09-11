@@ -38,7 +38,7 @@ class ThemeSelector
 				{
 					$context['ThemeSelector'][$theme_id]['variants'][$key] = array(
 						'name' => $variant['label'],
-						'selected' => $context['theme_variant'] == '_' . $key
+						'selected' => $selected && $context['theme_variant'] == '_' . $key
 					);
 				}
 			}
