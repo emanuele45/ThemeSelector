@@ -17,11 +17,22 @@ class ThemeSelector
 	{
 		global $context, $modSettings, $txt, $settings, $user_info;
 
+		if ($user_info['is_guest'])
+		{
+			$current_theme = !empty($_SESSION['id_theme']) ? $_SESSION['id_theme'] : 0;
+			$current_variant = !empty($_SESSION['id_variant']) ? '_' . $_SESSION['id_variant'] : '';
+		}
+		else
+		{
+			$current_theme = !empty($user_info['theme']) ? $user_info['theme'] : 0;
+			$current_variant = !empty($context['theme_variant']) ? $context['theme_variant'] : '';
+		}
+
 		if (($themes = cache_get_data('TS_themes_list', 3600)) === null)
 		{
 			loadLanguage('ManageThemes');
 			require_once(SUBSDIR . '/Themes.subs.php');
-			$themes = availableThemes($user_info['theme'], $user_info['id']);
+			$themes = availableThemes($current_theme, $user_info['id']);
 
 			cache_put_data('TS_themes_list', $themes, 3600);
 		}
@@ -29,7 +40,7 @@ class ThemeSelector
 		foreach ($themes[0] as $theme_id => $theme)
 		{
 			$name = $theme['name'];
-			$selected = !empty($user_info['theme']) && $user_info['theme'] == $theme_id;
+			$selected = $current_theme == $theme_id;
 
 			$context['ThemeSelector'][$theme_id] = array('name' => $name, 'selected' => $selected, 'variants' => array());
 			if (isset($theme['variants']))
@@ -38,7 +49,7 @@ class ThemeSelector
 				{
 					$context['ThemeSelector'][$theme_id]['variants'][$key] = array(
 						'name' => $variant['label'],
-						'selected' => $selected && $context['theme_variant'] == '_' . $key
+						'selected' => $selected && $current_variant == '_' . $key
 					);
 				}
 			}
